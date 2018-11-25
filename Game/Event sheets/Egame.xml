@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Egame</name>
+    <events>
+        <variable constant="0" name="Timer" sid="459836789276923" static="0" type="number">30</variable>
+        <variable constant="0" name="Score" sid="789328410153784" static="0" type="number">0</variable>
+        <event-block sid="133261338665335">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="859797975589000" type="System">
+                    <param id="0" name="Interval (seconds)">1.0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="590665286781999" type="System">
+                    <param id="0" name="Object to create">fruit</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="X">random(50,1650)</param>
+                    <param id="3" name="Y">0</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="181187470648978" type="fruit">
+                    <param id="0" name="Angle">90</param>
+                </action>
+                <action behavior="Bullet" id="0" name="Set speed" sid="404980964729249" type="fruit">
+                    <param id="0" name="Speed">choose(200,300,500)</param>
+                </action>
+                <action id="5" name="Set frame" sid="553540318603756" type="fruit">
+                    <param id="0" name="Frame number">choose(0,1,2,3,4,5,6)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="986720465660865">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="258329095882287" type="System">
+                    <param id="0" name="Interval (seconds)">10</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="180424748458365" type="System">
+                    <param id="0" name="Object to create">stonee</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="X">random(50,1650)</param>
+                    <param id="3" name="Y">0</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="830345135336679" type="stonee">
+                    <param id="0" name="Angle">90</param>
+                </action>
+                <action behavior="Bullet" id="0" name="Set speed" sid="354982964409764" type="stonee">
+                    <param id="0" name="Speed">100</param>
+                </action>
+                <action id="5" name="Set frame" sid="475084241594651" type="stonee">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="943141775933949">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="905992033224163" type="kon">
+                    <param id="0" name="Object">fruit</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="567236457590421" type="fruit">
+                    <param id="0" name="Object">star</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-9" name="Destroy" sid="421996983161468" type="fruit" />
+                <action id="-10" name="Add to" sid="222327183526409" type="System">
+                    <param id="0" name="Variable">Score</param>
+                    <param id="1" name="Value">5</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="602594860262655">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="987186328258699" type="kon">
+                    <param id="0" name="Object">stonee</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set time scale" sid="448978292139100" type="System">
+                    <param id="0" name="Time scale">0</param>
+                </action>
+                <action id="-4" name="Set layer visible" sid="602047340708863" type="System">
+                    <param id="0" name="Layer">3</param>
+                    <param id="1" name="Visibility">1</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="189138242288017" type="System">
+                    <param id="0" name="Layout">Highscore</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="102970553555639">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="513863208190293" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="887255314451163" type="txtScore">
+                    <param id="0" name="Text">Score</param>
+                </action>
+                <action id="0" name="Set text" sid="709218116086165" type="txTimer">
+                    <param id="0" name="Text">Timer</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="196433828016598">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="941368163475841" type="System">
+                    <param id="0" name="Interval (seconds)">1.0</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="333417613142000">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="569072890341462" type="System">
+                            <param id="0" name="Variable">Timer</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="246734466199126" type="System">
+                            <param id="0" name="Variable">Timer</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="563037780214789">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="890055781175969" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set time scale" sid="957940946579502" type="System">
+                            <param id="0" name="Time scale">0</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="711862020264471" type="System">
+                            <param id="0" name="Layer">3</param>
+                            <param id="1" name="Visibility">1</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="433600683693534" type="System">
+                            <param id="0" name="Layout">Highscore</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

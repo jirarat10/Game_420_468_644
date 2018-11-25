@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>evtHighScore2</name>
+    <events>
+        <variable constant="0" name="highscore2" sid="441364857304411" static="0" type="text">0,0,0,0,0,0,0,0,0,0</variable>
+        <event-block sid="573902001305903">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="993228310952116" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="367993187781116">
+                    <conditions>
+                        <condition id="3" name="Local key exists" sid="923202112302485" type="WebStorage">
+                            <param id="0" name="Key">&quot;wHighScore1&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="277266227454415" type="System">
+                            <param id="0" name="Variable">highscore2</param>
+                            <param id="1" name="Value">WebStorage.LocalValue(&quot;wHighScore1&quot;)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="159805960250962">
+                            <conditions>
+                                <condition id="3" name="For each element" sid="202635262190025" type="Array2">
+                                    <param id="0" name="Axes">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="177222900557454" type="Array2">
+                                    <param id="0" name="X">Array2.CurX</param>
+                                    <param id="1" name="Value">(tokenat(highscore2,Array2.CurX, &quot;, &quot;))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="511400422274223">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="137883626004283" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="439807913433821">
+                            <conditions>
+                                <condition id="3" name="For each element" sid="802195720607138" type="Array2">
+                                    <param id="0" name="Axes">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="335851701787123" type="Array2">
+                                    <param id="0" name="X">Array2.CurX</param>
+                                    <param id="1" name="Value">(tokenat(highscore2,Array2.CurX, &quot;, &quot;))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="223145859376652">
+                    <conditions />
+                    <actions>
+                        <action id="8" name="Sort" sid="710268729749577" type="Array2">
+                            <param id="0" name="Axis">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="967544229299418">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="953981065995037" type="System">
+                            <param id="0" name="First value">Score2</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">Array2.At(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="9" name="Delete" sid="778985518788936" type="Array2">
+                            <param id="0" name="Index">0</param>
+                            <param id="1" name="Axis">0</param>
+                        </action>
+                        <action id="10" name="Insert" sid="165938067517332" type="Array2">
+                            <param id="0" name="Value">Score2&amp;&quot;       &quot;&amp;player1</param>
+                            <param id="1" name="Index">0</param>
+                            <param id="2" name="Axis">0</param>
+                        </action>
+                        <action id="8" name="Sort" sid="621231622255069" type="Array2">
+                            <param id="0" name="Axis">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <variable constant="0" name="n" sid="354468677090365" static="0" type="number">9</variable>
+                <event-block sid="684489696571007">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="617932155826279" type="System">
+                            <param id="0" name="Object">txtScore2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="367440483270708" type="txtScore2">
+                            <param id="0" name="Text">Array2.At(n)</param>
+                        </action>
+                        <action id="-11" name="Subtract from" sid="443225890940957" type="System">
+                            <param id="0" name="Variable">n</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="680080677150264">
+                    <conditions />
+                    <actions>
+                        <action id="0" name="Set local value" sid="720628752189723" type="WebStorage">
+                            <param id="0" name="Key">&quot;wHighScore1&quot;</param>
+                            <param id="1" name="Value">Array2.At(0) &amp; &quot;,&quot; &amp; Array2.At(1) &amp; &quot;,&quot; &amp; Array2.At(2) &amp; &quot;,&quot; &amp;Array2.At(3) &amp; &quot;,&quot; &amp; Array2.At(4) &amp; &quot;,&quot; &amp; Array2.At(5) &amp; &quot;,&quot; &amp; Array2.At(6) &amp; &quot;,&quot; &amp; Array2.At(7) &amp; &quot;,&quot; &amp; Array2.At(8) &amp; &quot;,&quot; &amp; Array2.At(9)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="256541006187906">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="809037612894467" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="167721680443220" type="Text12">
+                    <param id="0" name="Text">Score2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="397004990064771">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="681497207673176" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="947251449565663" type="txtn">
+                    <param id="0" name="Text">player1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="142997424477325">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="216672922346031" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">no</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="592323648119339" type="System">
+                    <param id="0" name="Layout">login</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="587800152760883">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="870928068998667" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">ok</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="106252899197348" type="System">
+                    <param id="0" name="Layout">game2</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
